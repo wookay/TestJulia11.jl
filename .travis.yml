@@ -1,0 +1,14 @@
+# Documentation: http://docs.travis-ci.com/user/languages/julia/
+notifications:
+  email: false
+
+language: julia
+
+os:
+  - linux
+
+julia:
+  - 1.1
+
+script:
+  - JIVE_PROCS=auto julia --color=yes -e 'using Pkg; Pkg.test()'
