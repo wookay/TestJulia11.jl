@@ -12,6 +12,8 @@ julia:
 
 before_script:
   - julia --color=yes -e 'using Pkg; pkg"dev ASTInterpreter2 DebuggerFramework"'
+  - julia --color=yes -e 'using Pkg; pkg"dev Zygote IRTools"'
+  - julia --color=yes -e 'using Pkg; pkg"precompile"'
 
 script:
   - JIVE_PROCS=auto julia --color=yes -e 'using Pkg; Pkg.test()'
