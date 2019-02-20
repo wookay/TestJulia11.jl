@@ -1,9 +1,10 @@
-module test_pkgs_irtools_ir
+using Jive
+@If VERSION < v"1.2.0-DEV" module test_pkgs_irtools_ir
 
 using Test
-using IRTools
+using IRTools # code_ir
 
-ir = @code_ir 1+2
+ir = IRTools.code_ir(+, Tuple{Int, Int})
 @test ir isa IRTools.IR
 @test sprint(show, ir) == """1:
   %1 = (Base.add_int)(_2, _3)

@@ -12,7 +12,7 @@ julia:
   - nightly
 
 before_script:
-  - julia --color=yes -e 'using Pkg; pkg"dev ASTInterpreter2 DebuggerFramework"'
+  - julia --color=yes -e 'using Pkg; pkg"dev VT100 TerminalRegressionTests OrdinaryDiffEq"'
   - julia --color=yes -e 'using Pkg; pkg"dev Zygote IRTools"'
   - julia --color=yes -e 'using Pkg; pkg"precompile"'
 

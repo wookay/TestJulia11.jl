@@ -1,4 +1,5 @@
-module test_pkgs_zygote
+using Jive
+@If VERSION < v"1.2.0-DEV" module test_pkgs_zygote
 
 using Test
 using Zygote
