@@ -1,5 +1,4 @@
-using Jive
-@If VERSION < v"1.2.0-DEV" module test_pkgs_irtools_ir
+module test_pkgs_irtools_ir
 
 using Test
 using IRTools # code_ir

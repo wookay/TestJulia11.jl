@@ -12,8 +12,10 @@ julia:
   - nightly
 
 before_script:
-  - julia --color=yes -e 'using Pkg; pkg"dev VT100 TerminalRegressionTests OrdinaryDiffEq"'
+  - julia --color=yes -e 'using Pkg; pkg"dev OrdinaryDiffEq"'
   - julia --color=yes -e 'using Pkg; pkg"dev Zygote IRTools"'
+  - julia --color=yes -e 'using Pkg; pkg"dev https://github.com/JuliaDebug/JuliaInterpreter.jl.git"'
+  - julia --color=yes -e 'using Pkg; pkg"dev https://github.com/JuliaDebug/Debugger.jl.git"'
   - julia --color=yes -e 'using Pkg; pkg"precompile"'
 
 script:
