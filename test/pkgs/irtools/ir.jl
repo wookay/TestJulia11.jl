@@ -5,9 +5,11 @@ using IRTools # code_ir
 
 ir = IRTools.code_ir(+, Tuple{Int, Int})
 @test ir isa IRTools.IR
-@test sprint(show, ir) == """1:
-  %1 = (Base.add_int)(_2, _3)
-  return %1
-"""
+
+if VERSION >= v"1.2.0-DEV"
+    @test sprint(show, ir) == "1:\n  %1 = Base.add_int(_2, _3)\n  return %1\n"
+else
+    @test sprint(show, ir) == "1:\n  %1 = (Base.add_int)(_2, _3)\n  return %1\n"
+end
 
 end # module test_pkgs_irtools_ir
