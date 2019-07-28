@@ -1,5 +1,5 @@
 using Jive
-julia13skip = ["pkgs/irtools"]
+julia13skip = ["pkgs/irtools", "pkgs/diffeqflux"]
 VERSION <= v"1.2" && push!(julia13skip, "julia/unary")
 runtests(@__DIR__, skip=[julia13skip..., "revise.jl"])
 !isempty(julia13skip) && printstyled("skipped julia 1.3: ", join(julia13skip, ", "), "\n", color=:yellow)

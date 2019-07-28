@@ -1,4 +1,4 @@
-# must be VERSION >= v"1.2" 
+# must be VERSION >= v"1.2"
 module test_julia_unary
 
 using Test
