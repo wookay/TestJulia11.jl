@@ -1,7 +1,16 @@
-@If VERSION >= v"1.3.0-alpha.62" module test_julia_nothing
+module test_julia_cmd_nothing
 
 using Test
 
-@test println(nothing) === nothing
+@test_throws ArgumentError `$nothing`
 
-end # module test_julia_nothing
+end # module test_julia_cmd_nothing
+
+
+@If VERSION >= v"1.3.0-alpha.62" module test_julia_print_nothing
+
+using Test
+
+@test sprint(print, nothing) == "nothing"
+
+end # module test_julia_print_nothing
