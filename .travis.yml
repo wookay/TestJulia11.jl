@@ -6,20 +6,12 @@ language: julia
 
 os:
   - linux
-  - osx
-  - windows
+#  - osx
+#  - windows
 
 julia:
   - 1.3
   - nightly
-
-matrix:
-  exclude:
-    - os: osx
-      julia: nightly
-
-    - os: windows
-      julia: nightly
 
 before_script:
   - julia --color=yes -e 'using Pkg; pkg"add Flux#zygote"'
