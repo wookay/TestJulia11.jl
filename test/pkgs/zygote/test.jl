@@ -25,10 +25,6 @@ using Zygote
 f(x) = 3x^2 + 2x + 1
 @test gradient(f, 5) == (f'(5),)
 
-y, back = Zygote.forward(f, 5)
-@test y == 86
-@test back(1) == (32,)
-
 end # module test_pkgs_zygote_gradient
 
 
