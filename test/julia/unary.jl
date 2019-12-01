@@ -8,4 +8,18 @@ using Test
 ⋆(a) = 2a
 @test ⋆3 == 6
 
+
+# Julia issue #33859
+
+f() = 1
+g() = 2
+h() = 3
+
+x = f() + g() - h()
+@test x == 0
+
+x = f() + g()
+        - h()
+@test x == 3
+
 end # module test_julia_unary

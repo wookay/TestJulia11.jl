@@ -1,7 +1,12 @@
+using Jive
+@If VERSION >= v"1.1.0-DEV.792" module test_julia_array_eachrow
+
 using Test
-using SparseArrays
 
-@test indexin([100, 100, 200, 300], [100]) == [1, 1, nothing, nothing]
+A = [1 2;
+     3 4;
+     5 6]
+@test collect(eachrow(A)) == [[1, 2], [3, 4], [5, 6]]
+@test collect(eachcol(A)) == [[1, 3, 5], [2, 4, 6]]
 
-a = sparse([100, 100, 200, 300])
-@test indexin(a, [100]) == [1, 1, nothing, nothing]
+end # @If VERSION >= v"1.1.0-DEV.792" module test_julia_array_eachrow
