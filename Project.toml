@@ -4,17 +4,19 @@ authors = ["WooKyoung Noh <wookay.noh@gmail.com>"]
 version = "0.1.0"
 
 [extras]
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+InteractiveUtils = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 Jive = "ba5e3d4b-8524-549f-bc71-e76ad9e9deed"
 DiffEqFlux = "aae7a2af-3d4f-5e19-a356-7da93b79d9d0"
 Flux = "587475ba-b771-5e3f-ad9e-33799f191a9c"
 IRTools = "7869d1d1-7146-5819-86e3-90919afe41df"
-LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 JuliaInterpreter = "aa1ae85d-cabe-5617-a682-6adf51b2e16a"
 Debugger = "31a5f54b-26ea-5ae9-a837-f05ce5417438"
-Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
-SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 # Poirot = "8990bfda-9252-11e9-3647-47bd69460edd"
 
 [targets]
-test = ["Test", "Jive", "DiffEqFlux", "Flux", "IRTools", "LinearAlgebra", "JuliaInterpreter", "Debugger", "Dates", "SparseArrays"]
+test = ["Dates", "SparseArrays", "LinearAlgebra", "InteractiveUtils", "Test", 
+        "Jive", "DiffEqFlux", "Flux", "IRTools", "JuliaInterpreter", "Debugger"]
