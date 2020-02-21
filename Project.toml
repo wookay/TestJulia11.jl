@@ -18,5 +18,5 @@ Debugger = "31a5f54b-26ea-5ae9-a837-f05ce5417438"
 # Poirot = "8990bfda-9252-11e9-3647-47bd69460edd"
 
 [targets]
-test = ["Dates", "SparseArrays", "LinearAlgebra", "InteractiveUtils", "Test", 
+test = ["Dates", "SparseArrays", "LinearAlgebra", "InteractiveUtils", "Test",
         "Jive", "DiffEqFlux", "Flux", "IRTools", "JuliaInterpreter", "Debugger"]

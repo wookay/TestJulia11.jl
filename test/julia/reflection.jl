@@ -29,3 +29,13 @@ m = first(methods(G.f, G))
 @test m.name === :f
 
 end # @If VERSION >= v"1.4.0-DEV.581" module test_julia_methods
+
+
+@If VERSION >= v"1.5.0-DEV.247" module test_julia_ismutable
+
+using Test
+
+@test !ismutable((a=1,))
+@test ismutable(Dict(:a=>1))
+
+end # @If VERSION >= v"1.5.0-DEV.247" module test_julia_ismutable
