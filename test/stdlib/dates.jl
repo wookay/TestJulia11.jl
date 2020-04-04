@@ -17,3 +17,16 @@ dt = parse(DateTime, "Dec 20, 2019 6:37:10 PM", df)
 @test Dates.format(Time(Nanosecond(Minute(62))), "HH:MM") == "01:02"
 
 end # module test_stdlib_dates
+
+
+using Jive
+@If VERSION >= v"1.5.0-DEV.568" module test_stdlib_dates_eps
+
+using Test
+using Dates
+
+@test eps(Date) == Day(1)
+@test eps(Time) == Nanosecond(1)
+@test eps(DateTime) == Millisecond(1)
+
+end # module test_stdlib_dates_eps
