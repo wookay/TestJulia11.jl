@@ -20,3 +20,14 @@ using Test
 @test ∘(1) == 1
 
 end # module test_julia_operators_composition
+
+
+@If VERSION >= v"1.6.0-DEV.85" module test_julia_operators_composedfunction
+
+using Test
+
+c = (+) ∘ (-)
+@test c.f === +
+@test c.g === -
+
+end # module test_julia_operators_composedfunction
