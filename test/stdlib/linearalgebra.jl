@@ -6,7 +6,7 @@ using LinearAlgebra
 if VERSION >= v"1.5.0-DEV.782"
 
 # @test hadamard === ⊙
-@test tensor === ⊗
+# @test tensor === ⊗
 
 end
 
