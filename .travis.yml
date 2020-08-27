@@ -18,8 +18,8 @@ cache:
   - $HOME/.julia/artifacts
 
 before_script:
-  - julia --color=yes -e 'using Pkg; pkg"dev https://github.com/MikeInnes/XLATools.jl"'
-  - julia --color=yes -e 'using Pkg; pkg"dev https://github.com/MikeInnes/Poirot.jl"'
+  # - julia --color=yes -e 'using Pkg; pkg"dev https://github.com/MikeInnes/XLATools.jl"'
+  # - julia --color=yes -e 'using Pkg; pkg"dev https://github.com/MikeInnes/Poirot.jl"'
   # - julia --color=yes -e 'using Pkg; pkg"dev IRTools Zygote"'
   - julia --color=yes -e 'using Pkg; pkg"precompile"'
 
