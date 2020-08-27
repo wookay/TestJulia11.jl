@@ -39,3 +39,14 @@ using Test
 @test ismutable(Dict(:a=>1))
 
 end # @If VERSION >= v"1.5.0-DEV.247" module test_julia_ismutable
+
+
+@If VERSION >= v"1.6.0-DEV.736" module test_julia_bodyfunction
+
+using Test
+
+kwf(; x) = 3x + 1
+@test Base.bodyfunction(first(methods(kwf)))(2, kwf) == 7
+@test Core.kwfunc(kwf)((x=2,), kwf) == 7
+
+end # @If VERSION >= v"1.6.0-DEV.736" module test_julia_bodyfunction
