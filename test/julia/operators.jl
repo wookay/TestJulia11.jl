@@ -27,7 +27,13 @@ end # module test_julia_operators_composition
 using Test
 
 c = (+) ∘ (-)
-@test c.f === +
-@test c.g === -
+if VERSION >= v"1.6.0-DEV.1037"
+    @test c isa Base.ComposedFunction
+    @test c.outer === +
+    @test c.inner === -
+else
+    @test c.f === +
+    @test c.g === -
+end
 
 end # module test_julia_operators_composedfunction
