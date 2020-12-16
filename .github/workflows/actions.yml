@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    paths-ignore:
+      - README.md
+      - 'docs/**'
+  pull_request:
+
+jobs:
+  Test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        julia-version: [1.5.3]
+        julia-arch: [x64]
+        os: [ubuntu-latest]
+        include:
+          - julia-version: nightly
+            os: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: julia-actions/setup-julia@latest
+        with:
+          version: ${{ matrix.julia-version }}
+      - name: runtests
+        run: |
+             julia --project=. -e 'using Pkg; Pkg.test()'
