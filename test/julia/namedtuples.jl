@@ -33,3 +33,23 @@ end
 @info b == 2
 
 end # module test_julia_property_destructuring
+
+
+
+@If VERSION >= v"1.7.0-DEV.579" module test_julia_property_destructuring_type_annotations
+
+using Test
+
+struct X
+    c
+    d
+end
+
+let c, d
+(; d::Int, c::String) = X("a", 2.0)
+
+@test c == "a"
+@test d isa Int
+end
+
+end #module test_julia_property_destructuring_type_annotations
