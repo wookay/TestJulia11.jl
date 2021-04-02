@@ -37,3 +37,15 @@ else
 end
 
 end # module test_julia_operators_composedfunction
+
+
+module test_julia_returns
+
+using Test
+
+if VERSION >= v"1.7.0-DEV.793"
+    f = Returns(42)
+    @test f() == f(1) == f(; f) == 42
+end
+
+end # module test_julia_returns
