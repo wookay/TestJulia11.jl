@@ -1,7 +1,7 @@
 module test_pkgs_macrotools_expand
 
-using MacroTools
 using Test
+using MacroTools
 
 expr = MacroTools.@expand(@test true)
 
