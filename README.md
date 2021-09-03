@@ -5,8 +5,8 @@
 |  [![][actions-img]][actions-url] |
 
 
- * https://github.com/wookay/TestJulia07.jl  Practice Julia - stable things
- * https://github.com/wookay/TestJulia11.jl  Practice Julia II - dev things
+ * https://github.com/wookay/TestJulia07.jl  Practices with Julia - things are stable
+ * https://github.com/wookay/TestJulia11.jl  Practices with Julia II - things that merged recently
 
 
 [actions-img]: https://github.com/wookay/TestJulia11.jl/workflows/CI/badge.svg
