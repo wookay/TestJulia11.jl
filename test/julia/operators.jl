@@ -49,3 +49,16 @@ if VERSION >= v"1.7.0-DEV.793"
 end
 
 end # module test_julia_returns
+
+
+module test_julia_predicate_function_negation
+
+using Test
+
+if VERSION >= v"1.9.0-DEV.364"
+bf = !.==
+@test bf.inner === .==
+@test bf.outer === !
+end
+
+end # module test_julia_predicate_function_negation
