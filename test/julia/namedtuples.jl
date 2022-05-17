@@ -30,7 +30,7 @@ end
 
 (; a, b) = X(1, 2)
 @test a == 1
-@info b == 2
+@test b == 2
 
 end # module test_julia_property_destructuring
 
