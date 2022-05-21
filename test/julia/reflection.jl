@@ -52,7 +52,8 @@ kwf(; x) = 3x + 1
 end # @If VERSION >= v"1.6.0-DEV.736" module test_julia_bodyfunction
 
 
-module test_julia_destructure_callex
+using Jive
+@If VERSION >= v"1.8.0-DEV.259" module test_julia_destructure_callex
 
 using Test
 
