@@ -47,7 +47,8 @@ using Test
 
 kwf(; x) = 3x + 1
 @test Base.bodyfunction(first(methods(kwf)))(2, kwf) == 7
-@test Core.kwfunc(kwf)((x=2,), kwf) == 7
+# removed by Julia PR 47157
+# @test Core.kwfunc(kwf)((x=2,), kwf) == 7
 
 end # @If VERSION >= v"1.6.0-DEV.736" module test_julia_bodyfunction
 
