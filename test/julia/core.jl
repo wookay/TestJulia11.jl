@@ -1,4 +1,4 @@
-module test_julia_core
+module test_julia_core_setglobal
 
 using Test
 
@@ -9,4 +9,4 @@ setglobal!(md, :n, 2)
 @test getglobal(md, :n) == n
 end
 
-end # module test_julia_core
+end # module test_julia_core_setglobal
