@@ -17,3 +17,17 @@ if VERSION >= v"1.7.0-DEV.1286"
 end
 
 end # module test_julia_strings
+
+
+using Jive
+@If VERSION >= v"1.11.0-DEV.704" module test_julia_annotated
+
+using Test
+
+as = Base.annotatedstring("Hello World")
+@test isempty(Base.annotations(as))
+
+Base.annotate!(as, :a => 1)
+@test Base.annotations(as) == [(1:11, :a => 1)]
+
+end # @If VERSION >= v"1.11.0-DEV.704" module test_julia_annotated
