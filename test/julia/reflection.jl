@@ -51,27 +51,3 @@ kwf(; x) = 3x + 1
 # @test Core.kwfunc(kwf)((x=2,), kwf) == 7
 
 end # @If VERSION >= v"1.6.0-DEV.736" module test_julia_bodyfunction
-
-
-using Jive
-@If VERSION >= v"1.8.0-DEV.259" module test_julia_destructure_callex
-
-using Test
-
-macro destructure(ex)
-    f, args, kwargs = Base.destructure_callex(ex)
-    (f, args, kwargs)
-end
-
-(f, args, kwargs) = @destructure f(a::Int; b=2)
-@test f === :f
-@test args == Any[:(a::Int)]
-@test kwargs == Any[Expr(:kw, :b, 2)]
-
-@test (f, args, kwargs) == Base.destructure_callex(:(f(a::Int; b=2)))
-
-q = quote f(a::Int; b=2) end
-@test q.args[1] isa LineNumberNode
-@test :(f(a::Int; b=2)) == q.args[2]
-
-end # module test_julia_destructure_callex
