@@ -8,7 +8,7 @@
  * https://github.com/wookay/TestJulia11.jl  Practices with Julia II - things that merged recently
 
 
-[actions-img-07]: https://github.com/wookay/TestJulia07.jl/workflows/CI/badge.svg
+[actions-img-07]: https://github.com/wookay/TestJulia07.jl/actions/workflows/actions.yml/badge.svg
 [actions-url-07]: https://github.com/wookay/TestJulia07.jl/actions
-[actions-img-11]: https://github.com/wookay/TestJulia11.jl/workflows/CI/badge.svg
+[actions-img-11]: https://github.com/wookay/TestJulia11.jl/actions/workflows/actions.yml/badge.svg
 [actions-url-11]: https://github.com/wookay/TestJulia11.jl/actions
