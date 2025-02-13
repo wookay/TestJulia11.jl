@@ -22,7 +22,7 @@ jobs:
         julia-arch: [x64]
         os: [ubuntu-latest, macos-latest]
         include:
-          - julia-version: 1.10.0
+          - julia-version: 1.11.3
             os: ubuntu-latest
           - julia-version: 1.6.7
             os: ubuntu-latest
