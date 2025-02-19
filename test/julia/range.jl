@@ -16,3 +16,14 @@ using Dates
 @test intersect(Date(2020, 1, 1):Day(1):Date(2020, 1, 5), Date(2020, 1, 3):Day(1):Date(2020, 1, 8)) == Date(2020, 1, 3):Day(1):Date(2020, 1, 5)
 
 end # module test_julia_range_dates
+
+
+module test_julia_range_logrange
+
+using Test
+
+if VERSION >= v"1.11"
+@test logrange(1, 100_000, length=6) == [1, 10, 10^2, 10^3, 10^4, 10^5]
+end
+
+end # module test_julia_range_logrange
