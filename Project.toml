@@ -4,6 +4,7 @@ authors = ["WooKyoung Noh <wookay.noh@gmail.com>"]
 version = "0.1.0"
 
 [extras]
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
 Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
 TOML = "fa267f1f-6049-4f14-aa54-33bafae1ed76"
 SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
@@ -14,7 +15,7 @@ Jive = "ba5e3d4b-8524-549f-bc71-e76ad9e9deed"
 MacroTools = "1914dd2f-81c6-5fcd-8719-6d5c9610ff09"
 
 [targets]
-test = ["Dates", "TOML", "SparseArrays", "LinearAlgebra", "InteractiveUtils", "Test",
+test = ["Printf", "Dates", "TOML", "SparseArrays", "LinearAlgebra", "InteractiveUtils", "Test",
         "Jive", "MacroTools"]
 
 [compat]
