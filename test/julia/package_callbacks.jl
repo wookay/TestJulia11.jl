@@ -17,6 +17,8 @@ using TOML
 pop!(Base.package_callbacks)
 
 using Test
-@test counter == 2
+if VERSION >= v"1.11"
+    @test counter == 2
+end
 
 end # module test_julia_package_callbacks
