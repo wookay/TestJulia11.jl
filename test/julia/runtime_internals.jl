@@ -12,7 +12,9 @@ fullname
 end
 names
 Base.isexported
-Base.ispublic
+@If VERSION >= v"1.11" begin
+    Base.ispublic
+end
 Base.binding_module
 @If VERSION >= v"1.12.0-DEV.1445" begin
     Base.delete_binding
@@ -23,7 +25,9 @@ hasfield
 nameof
 parentmodule
 isconst
-Base.isfieldatomic
+@If VERSION >= v"1.12.0-DEV.1405" begin
+    Base.isfieldatomic
+end
 Base.@locals
 Base.datatype_alignment
 Base.datatype_haspadding
@@ -31,20 +35,28 @@ Base.datatype_haspadding
     Base.datatype_isbitsegal
 end
 Base.datatype_nfields
-Base.datatype_npointers
+@If VERSION >= v"1.12.0-DEV.1405" begin
+    Base.datatype_npointers
+end
 Base.datatype_pointerfree
 Base.datatype_fielddesc_type
-Base.datatype_arrayelem
+@If VERSION >= v"1.12.0-DEV.1405" begin
+    Base.datatype_arrayelem
+end
 ismutable
-ismutabletype
+@If  VERSION >= v"1.7" begin
+    ismutabletype
+end
 isstructtype
 isprimitivetype
 isbitstype
 isbits
 objectid
 isdispatchtuple
-Base.ismutationfree
-Base.isidentityfree
+@If VERSION >= v"1.12.0-DEV.1405" begin
+    Base.ismutationfree
+    Base.isidentityfree
+end
 isconcretetype
 isabstracttype
 Base.issingletontype
@@ -57,13 +69,19 @@ fieldtypes
 instances
 Base.has_bottom_parameter
 Base.get_world_counter
-Base.tls_world_age
+@If VERSION >= v"1.12.0-DEV.1405" begin
+    Base.tls_world_age
+end
 propertynames
 hasproperty
 Base.delete_method
 methods
-Base.generating_output
+@If VERSION >= v"1.11" begin
+    Base.generating_output
+end
 Base.may_invoke_generator
-Base.specializations
+@If VERSION >= v"1.13.0-DEV.9" begin
+    Base.specializations
+end
 
 end # module test_julia_runtime_internals
