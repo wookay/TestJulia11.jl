@@ -16,4 +16,20 @@ if VERSION >= v"1.9.0-DEV.1611"
     end
 end
 
+if VERSION >= v"1.2.0-DEV.205"
+    # julia/base/sysimg.jl
+    maxlen = 14 # maximum(textwidth.(string.(stdlibs)))
+    function print_time(mod, t)
+        print(rpad(string(mod) * "  ", maxlen + 3, "─"))
+        if hasmethod(Base.time_print, Tuple{Float64})
+            Base.time_print(t * 10^9)
+        else
+            Base.time_print(stdout, t * 10^9)
+        end
+        println()
+    end
+    base_include_time = (Base.end_base_include - Base.start_base_include) * 10^(-9)
+    print_time(Base, base_include_time)
+end
+
 end # module test_julia_compiler
