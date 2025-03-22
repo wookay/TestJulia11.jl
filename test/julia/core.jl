@@ -38,7 +38,10 @@ end # module test_julia_core_setglobal
       contents and summing those, while accounting for cycles and duplicates. (This field
       currently does not include any measured AOT compile times.)
 """
-module test_julia_core_timing_fields
+test_julia_core_timing_fields
+
+using Jive
+@If VERSION >= v"1.8" module test_julia_core_timing_fields
 
 using InteractiveUtils
 using Test
@@ -71,7 +74,7 @@ end
 end # module test_julia_core_timing_fields
 
 
-module test_julia_core_nospecialize
+@If VERSION >= v"1.10" module test_julia_core_nospecialize
 
 using Test
 
