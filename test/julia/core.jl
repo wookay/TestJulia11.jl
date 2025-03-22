@@ -69,3 +69,20 @@ time_compile           = reinterpret(Float16, b.time_compile)
 end
 
 end # module test_julia_core_timing_fields
+
+
+module test_julia_core_nospecialize
+
+using Test
+
+f(x) = 42
+f(0)
+f(pi)
+@test only(methods(f)).specializations isa Core.SimpleVector
+
+fnosp(@nospecialize(x)) = 42
+fnosp(0)
+fnosp(pi)
+@test only(methods(fnosp)).specializations isa Core.MethodInstance
+
+end # module test_julia_core_nospecialize
