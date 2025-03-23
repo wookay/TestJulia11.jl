@@ -79,13 +79,21 @@ end # module test_julia_core_timing_fields
 using Test
 
 f(x) = 42
+@test only(methods(f)).specializations isa Core.SimpleVector
 f(0)
+@test only(methods(f)).specializations isa Core.MethodInstance
 f(pi)
+@test only(methods(f)).specializations isa Core.SimpleVector
+f("")
 @test only(methods(f)).specializations isa Core.SimpleVector
 
 fnosp(@nospecialize(x)) = 42
+@test only(methods(fnosp)).specializations isa Core.SimpleVector
 fnosp(0)
+@test only(methods(fnosp)).specializations isa Core.MethodInstance
 fnosp(pi)
+@test only(methods(fnosp)).specializations isa Core.MethodInstance
+fnosp("")
 @test only(methods(fnosp)).specializations isa Core.MethodInstance
 
 end # module test_julia_core_nospecialize
