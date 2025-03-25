@@ -53,3 +53,17 @@ let c, d
 end
 
 end #module test_julia_property_destructuring_type_annotations
+
+
+@If VERSION >= v"1.7" module test_julia_namedtuples_error
+
+using Test
+
+a = 1
+if VERSION >= v"1.12"
+@test_throws FieldError(@NamedTuple{a::Int64}, :b)            (; b) = (; a)
+else
+@test_throws ErrorException("type NamedTuple has no field b") (; b) = (; a)
+end
+
+end # module test_julia_namedtuples_error
