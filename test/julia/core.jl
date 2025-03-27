@@ -79,21 +79,36 @@ end # module test_julia_core_timing_fields
 using Test
 
 f(x) = 42
-@test only(methods(f)).specializations isa Core.SimpleVector
+@test only(methods(f)).specializations === Core.svec()
+
 f(0)
-@test only(methods(f)).specializations isa Core.MethodInstance
+mi::Core.MethodInstance = only(methods(f)).specializations
+@test mi.specTypes == Tuple{typeof(f), Int64}
+
 f(pi)
-@test only(methods(f)).specializations isa Core.SimpleVector
+mi::Core.MethodInstance = only(methods(f)).specializations[1]
+@test mi.specTypes == Tuple{typeof(f), Int64}
+mi::Core.MethodInstance = only(methods(f)).specializations[2]
+@test mi.specTypes == Tuple{typeof(f), Irrational{:π}}
+
 f("")
-@test only(methods(f)).specializations isa Core.SimpleVector
+mi::Core.MethodInstance = only(methods(f)).specializations[3]
+@test mi.specTypes == Tuple{typeof(f), String}
+
 
 fnosp(@nospecialize(x)) = 42
-@test only(methods(fnosp)).specializations isa Core.SimpleVector
+@test only(methods(fnosp)).specializations === Core.svec()
+
 fnosp(0)
-@test only(methods(fnosp)).specializations isa Core.MethodInstance
+mi::Core.MethodInstance = only(methods(fnosp)).specializations
+@test mi.specTypes == Tuple{typeof(fnosp), Any}
+
 fnosp(pi)
-@test only(methods(fnosp)).specializations isa Core.MethodInstance
+mi::Core.MethodInstance = only(methods(fnosp)).specializations
+@test mi.specTypes == Tuple{typeof(fnosp), Any}
+
 fnosp("")
-@test only(methods(fnosp)).specializations isa Core.MethodInstance
+mi::Core.MethodInstance = only(methods(fnosp)).specializations
+@test mi.specTypes == Tuple{typeof(fnosp), Any}
 
 end # module test_julia_core_nospecialize
