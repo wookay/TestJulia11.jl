@@ -20,7 +20,7 @@ end # module test_julia_strings
 
 
 using Jive
-@If VERSION >= v"1.11.0-DEV.704" module test_julia_annotated
+@If VERSION >= v"1.11.0-DEV.704" module test_julia_strings_annotated
 
 using Test
 
@@ -30,4 +30,4 @@ as = Base.annotatedstring("Hello World")
 Base.annotate!(as, :a, 1)
 @test Base.annotations(as) == [(region=1:11, label=:a, value=1)]
 
-end # @If VERSION >= v"1.11.0-DEV.704" module test_julia_annotated
+end # @If VERSION >= v"1.11.0-DEV.704" module test_julia_strings_annotated
