@@ -44,7 +44,7 @@ Base.datatype_fielddesc_type
     Base.datatype_arrayelem
 end
 ismutable
-@If  VERSION >= v"1.7" begin
+@If VERSION >= v"1.7" begin
     ismutabletype
 end
 isstructtype
@@ -61,7 +61,15 @@ isconcretetype
 isabstracttype
 Base.issingletontype
 typeintersect
+
 fieldoffset
+@If VERSION >= v"1.13.0-DEV.454" begin
+struct Player
+    level
+end
+@test fieldoffset(Player, :level) == 0x0000000000000000
+end
+
 fieldtype
 Base.fieldindex
 fieldcount
