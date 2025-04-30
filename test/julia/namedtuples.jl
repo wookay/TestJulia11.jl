@@ -60,7 +60,7 @@ end #module test_julia_property_destructuring_type_annotations
 using Test
 
 a = 1
-if VERSION >= v"1.12"
+if VERSION >= v"1.12-beta"
 @test_throws FieldError(@NamedTuple{a::Int64}, :b)            (; b) = (; a)
 else
 @test_throws ErrorException("type NamedTuple has no field b") (; b) = (; a)
