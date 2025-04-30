@@ -112,3 +112,32 @@ mi::Core.MethodInstance = only(methods(fnosp)).specializations
 @test mi.specTypes == Tuple{typeof(fnosp), Any}
 
 end # module test_julia_core_nospecialize
+
+
+module test_julia_core_builtin_import_using
+
+using Test
+
+baremodule From
+const a = 1
+end # baremodule From
+
+baremodule To1
+end # baremodule To1
+
+baremodule To2
+end # baremodule To2
+
+if VERSION >= v"1.13.0-DEV.459"
+Core._import(To1, From, :From)
+Base.invokelatest() do
+    @test To1.From.a == From.a
+end
+
+Core._using(To2, From)
+Base.invokelatest() do
+    @test To2.From.a == From.a
+end
+end # if VERSION >= v"1.13.0-DEV.459"
+
+end # module test_julia_core_builtin_import_using
