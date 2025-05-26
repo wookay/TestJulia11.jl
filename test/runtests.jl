@@ -1,5 +1,5 @@
 using Jive
-skip_tests = ["pkgs"]
+skip_tests = map(dir -> "pkgs/$dir", split("debugger irtools plutoui diffeqflux macrotools poirot zygote"))
 
 VERSION < v"1.6.0-DEV.1157" && push!(skip_tests, "julia/import_as.jl")
 VERSION < v"1.8" && push!(skip_tests, "julia/core_const_setfield.jl")
