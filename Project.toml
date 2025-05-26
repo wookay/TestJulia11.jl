@@ -14,13 +14,11 @@ Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 Jive = "ba5e3d4b-8524-549f-bc71-e76ad9e9deed"
 MacroTools = "1914dd2f-81c6-5fcd-8719-6d5c9610ff09"
-UnicodePlots = "b8865327-cd53-5732-bb35-84acbb429228"
 
 [targets]
 test = ["Printf", "Dates", "TOML", "SparseArrays", "LinearAlgebra", "InteractiveUtils", "Test", "Random",
-        "Jive", "MacroTools", "UnicodePlots"]
+        "Jive", "MacroTools"]
 
 [compat]
 Jive = "0.3"
 MacroTools = "0.5"
-UnicodePlots = "3.6, 3.7"
