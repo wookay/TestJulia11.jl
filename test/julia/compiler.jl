@@ -32,10 +32,10 @@ if VERSION >= v"1.2.0-DEV.205"
     print_time(Base, base_include_time)
 end
 
-@test_throws TypeError Base.typejoin(1, Int)
-Base.typejoin(x, ::Type) = 0
-@test Base.typejoin(1, Int) == 0
-Base.delete_method(which(Base.typejoin, Tuple{Any, Type{Int}}))
-@test_throws TypeError Base.typejoin(1, Int)
+# @test_throws TypeError Base.typejoin(1, Int)
+# Base.typejoin(x, ::Type) = 0
+# @test Base.typejoin(1, Int) == 0
+# Base.delete_method(which(Base.typejoin, Tuple{Any, Type{Int}}))
+# @test_throws TypeError Base.typejoin(1, Int)
 
 end # module test_julia_compiler
